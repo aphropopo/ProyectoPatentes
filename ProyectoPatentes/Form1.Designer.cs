@@ -31,15 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvArchivos = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.btnPatente = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAuto = new System.Windows.Forms.TextBox();
             this.btnAuto = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRuta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +56,6 @@
             this.label2.Size = new System.Drawing.Size(107, 37);
             this.label2.TabIndex = 0;
             this.label2.Text = "Dameri";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -64,20 +66,6 @@
             this.label3.Size = new System.Drawing.Size(145, 21);
             this.label3.TabIndex = 1;
             this.label3.Text = "Presupuestos:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(264, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label4
             // 
@@ -90,14 +78,28 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Dameri";
             // 
-            // listView1
+            // lvArchivos
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(381, 132);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(247, 256);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvArchivos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvArchivos.HideSelection = false;
+            this.lvArchivos.Location = new System.Drawing.Point(381, 132);
+            this.lvArchivos.Name = "lvArchivos";
+            this.lvArchivos.Size = new System.Drawing.Size(247, 256);
+            this.lvArchivos.TabIndex = 4;
+            this.lvArchivos.UseCompatibleStateImageBehavior = false;
+            this.lvArchivos.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Patente";
+            this.columnHeader1.Width = 96;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Fecha de Creacion";
+            this.columnHeader2.Width = 107;
             // 
             // label5
             // 
@@ -131,9 +133,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(34, 238);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 16);
+            this.label6.Size = new System.Drawing.Size(107, 16);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Buscar Auto:";
+            this.label6.Text = "Buscar Fecha:";
             // 
             // txtAuto
             // 
@@ -151,23 +153,43 @@
             this.btnAuto.Text = "Buscar";
             this.btnAuto.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(264, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnRuta
+            // 
+            this.btnRuta.Location = new System.Drawing.Point(528, 106);
+            this.btnRuta.Name = "btnRuta";
+            this.btnRuta.Size = new System.Drawing.Size(75, 23);
+            this.btnRuta.TabIndex = 9;
+            this.btnRuta.Text = "Ruta";
+            this.btnRuta.UseVisualStyleBackColor = true;
+            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(639, 397);
+            this.Controls.Add(this.btnRuta);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAuto);
             this.Controls.Add(this.btnPatente);
             this.Controls.Add(this.txtAuto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPatente);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvArchivos);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Buscador de Presupuestos";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -179,18 +201,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvArchivos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.Button btnPatente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAuto;
         private System.Windows.Forms.Button btnAuto;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnRuta;
     }
 }
 
